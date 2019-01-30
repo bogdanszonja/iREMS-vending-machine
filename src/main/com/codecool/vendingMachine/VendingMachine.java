@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class VendingMachine {
 	
 	private Map<Coin, Integer> coinInventory = new HashMap<Coin, Integer>();
+	private Map<Product, Integer> productInventory = new HashMap<Product, Integer>();
 	
 	public VendingMachine() {
 		this.initialize();
@@ -15,7 +16,11 @@ public class VendingMachine {
 		this.coinInventory.put(Coin.PENNY, 10);
 		this.coinInventory.put(Coin.NICKEL, 10);
 		this.coinInventory.put(Coin.DIME, 5);
-		this.coinInventory.put(Coin.QUARTER, 5);	
+		this.coinInventory.put(Coin.QUARTER, 5);
+		
+		this.productInventory.put(Product.COKE, 15);
+		this.productInventory.put(Product.PEPSI, 15);
+		this.productInventory.put(Product.SODA, 15);
 	}
 
 	public Map<Coin, Integer> getCoinInventory() {
@@ -23,8 +28,7 @@ public class VendingMachine {
 	}
 
 	public Map<Product, Integer> getProductInventory() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.productInventory;
 	}	
 
 }
