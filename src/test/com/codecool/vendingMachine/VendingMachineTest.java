@@ -44,5 +44,19 @@ public class VendingMachineTest {
 		
 		assertEquals(expectedProductInventory, result);
 	}
+	
+	@Test
+	void addCoinForInventory() {
+		Map<Coin, Integer> expectedCoinInventory = new HashMap<Coin, Integer>();
+		expectedCoinInventory.put(Coin.PENNY, 10);
+		expectedCoinInventory.put(Coin.NICKEL, 10);
+		expectedCoinInventory.put(Coin.DIME, 6);
+		expectedCoinInventory.put(Coin.QUARTER, 5);
+		
+		this.vendingMachine.addCoinToInventory(Coin.DIME);
+		Map<Coin, Integer> result = this.vendingMachine.getCoinInventory();
+		
+		assertEquals(expectedCoinInventory, result);
+	}
 
 }

@@ -29,6 +29,10 @@ public class VendingMachine {
 
 	public Map<Product, Integer> getProductInventory() {
 		return this.productInventory;
+	}
+
+	public void addCoinToInventory(Coin coin) {
+		// TODO Auto-generated method stub
 	}	
 
 }
