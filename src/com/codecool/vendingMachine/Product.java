@@ -1,6 +1,5 @@
 package com.codecool.vendingMachine;
 
-
 /**
  * Products supported by the vending machine.
  * @author Szonja Bogdán
