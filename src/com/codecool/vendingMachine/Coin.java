@@ -1,5 +1,10 @@
 package com.codecool.vendingMachine;
 
+/**
+ * Coins supported by the vending machine.
+ * @author Szonja Bogdán
+ *
+ */
 public enum Coin {
 	
 	PENNY(1),
