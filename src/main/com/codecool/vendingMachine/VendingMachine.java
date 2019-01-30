@@ -34,6 +34,10 @@ public class VendingMachine {
 	public void addCoinToInventory(Coin coin) {
 		int count = this.coinInventory.get(coin);
 		this.coinInventory.put(coin, count + 1);
+	}
+
+	public void addProductToInventory(Product coke) {
+		// TODO Auto-generated method stub
 	}	
 
 }
