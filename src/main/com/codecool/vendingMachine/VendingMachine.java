@@ -20,6 +20,11 @@ public class VendingMachine {
 
 	public Map<Coin, Integer> getCoinInventory() {
 		return this.coinInventory;
+	}
+
+	public Map<Product, Integer> getProductInventory() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 }
