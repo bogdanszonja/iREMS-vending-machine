@@ -60,7 +60,7 @@ public class VendingMachineTest {
 	}
 	
 	@Test
-	void addProductForInventory() {
+	void testAddProductForInventory() {
 		Map<Product, Integer> expectedProductInventory = new HashMap<Product, Integer>();
 		expectedProductInventory.put(Product.COKE, 16);
 		expectedProductInventory.put(Product.PEPSI, 15);
@@ -73,7 +73,7 @@ public class VendingMachineTest {
 	}
 	
 	@Test
-	void removeCoinFromInventory() {
+	void testRemoveCoinFromInventory() {
 		Map<Coin, Integer> expectedCoinInventory = new HashMap<Coin, Integer>();
 		expectedCoinInventory.put(Coin.PENNY, 9);
 		expectedCoinInventory.put(Coin.NICKEL, 10);
@@ -87,7 +87,7 @@ public class VendingMachineTest {
 	}
 	
 	@Test
-	void removeProductFromInventory() {
+	void testRemoveProductFromInventory() {
 		Map<Product, Integer> expectedProductInventory = new HashMap<Product, Integer>();
 		expectedProductInventory.put(Product.COKE, 15);
 		expectedProductInventory.put(Product.PEPSI, 15);
@@ -97,6 +97,18 @@ public class VendingMachineTest {
 		Map<Product, Integer> result = this.vendingMachine.getProductInventory();
 		
 		assertEquals(expectedProductInventory, result);
+	}
+	
+	@Test
+	void testHasCoinFalseIfNoCoinFound() {
+		boolean expected = false;
+		
+		for (int i = 0; i < 7; i++) {
+			this.vendingMachine.removeCoinFromInventory(Coin.DIME);
+		}
+		boolean result = this.vendingMachine.hasCoin(Coin.DIME);
+		
+		assertEquals(expected, result);
 	}
 
 }

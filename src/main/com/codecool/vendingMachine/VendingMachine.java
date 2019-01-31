@@ -49,6 +49,10 @@ public class VendingMachine {
 	public void removeProductFromInventory(Product product) {
 		int count = this.productInventory.get(product);
 		this.productInventory.put(product, count - 1);		
-	}	
+	}
+
+	public boolean hasCoin(Coin coin) {
+		return this.coinInventory.get(coin) > 0 ? true : false;
+	}
 
 }
