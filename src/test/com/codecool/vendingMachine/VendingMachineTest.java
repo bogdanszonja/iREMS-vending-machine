@@ -45,4 +45,12 @@ public class VendingMachineTest {
 		assertEquals(expectedProductInventory, result);
 	}
 	
+	@Test
+	void testGetPriceForSelectedProduct() {
+		int expectedPrice = 45;
+		
+		int result = this.vendingMachine.getPriceForSelectedProduct(Product.SODA);
+		
+		assertEquals(expectedPrice, result);
+	}
 }

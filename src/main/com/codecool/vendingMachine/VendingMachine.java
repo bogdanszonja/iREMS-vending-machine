@@ -6,6 +6,7 @@ public class VendingMachine {
 	
 	private Inventory<Coin> coinInventory = new Inventory<Coin>();
 	private Inventory<Product> productInventory = new Inventory<Product>();
+	private Product selectedProduct;
 	
 	public VendingMachine() {
 		this.initialize();
@@ -28,6 +29,14 @@ public class VendingMachine {
 
 	public Map<Product, Integer> getProductInventory() {
 		return this.productInventory.getInventory();
+	}
+
+	public int getPriceForSelectedProduct(Product product) {
+		if (productInventory.hasItem(product)) {
+			this.selectedProduct = product;
+			return this.selectedProduct.getPrice();
+		} 
+		return 0;
 	}
 
 }
