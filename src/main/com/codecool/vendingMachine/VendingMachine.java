@@ -48,5 +48,19 @@ public class VendingMachine {
 		this.currentBalance += coin.getValue();
 		this.coinInventory.add(coin);
 	}
+	
+	private boolean isEnoughCoinInserted() {
+		if (this.currentBalance >= this.selectedProduct.getPrice()) {
+			return true;
+		}
+		return false;
+	}
+	
+	private void reset() {
+		this.coinInventory.clear();
+		this.productInventory.clear();
+		this.selectedProduct = null;
+		this.currentBalance = 0;
+	}
 
 }
