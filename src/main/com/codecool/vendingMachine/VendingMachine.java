@@ -36,7 +36,7 @@ public class VendingMachine {
 			this.selectedProduct = product;
 			return this.selectedProduct.getPrice();
 		} 
-		return 0;
+		throw new SoldOutException("The selected product is sold out, please select another");
 	}
 
 }

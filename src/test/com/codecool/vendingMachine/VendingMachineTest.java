@@ -3,6 +3,7 @@ package test.com.codecool.vendingMachine;
 import main.com.codecool.vendingMachine.VendingMachine;
 import main.com.codecool.vendingMachine.Coin;
 import main.com.codecool.vendingMachine.Product;
+import main.com.codecool.vendingMachine.SoldOutException;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class VendingMachineTest {
 	
@@ -52,5 +54,13 @@ public class VendingMachineTest {
 		int result = this.vendingMachine.getPriceForSelectedProduct(Product.SODA);
 		
 		assertEquals(expectedPrice, result);
+	}
+	
+	@Test
+	void testGetPriceThrowsExceptionIfSelectedProductSoldOut() {
+		this.vendingMachine.getProductInventory().clear();
+		
+		assertThrows(SoldOutException.class,
+				() -> this.vendingMachine.getPriceForSelectedProduct(Product.COKE));
 	}
 }
