@@ -18,7 +18,7 @@ public class Inventory<T> {
 	}
 	
 	public boolean hasItem(T item) {
-		return this.inventory.get(item) > 0 ? true : false;
+		return this.inventory.containsKey(item) ? true : false;
 	}
 	
 	public void putAmount(T item, int amount) {
