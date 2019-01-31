@@ -28,4 +28,8 @@ public class Inventory<T> {
 	public Map<T, Integer> getInventory() {
 		return this.inventory;
 	}
+	
+	public void clear() {
+		this.inventory.clear();
+	}
 }
