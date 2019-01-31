@@ -7,6 +7,7 @@ public class VendingMachine {
 	private Inventory<Coin> coinInventory = new Inventory<Coin>();
 	private Inventory<Product> productInventory = new Inventory<Product>();
 	private Product selectedProduct;
+	private int currentBalance;
 	
 	public VendingMachine() {
 		this.initialize();
@@ -37,6 +38,15 @@ public class VendingMachine {
 			return this.selectedProduct.getPrice();
 		} 
 		throw new SoldOutException("The selected product is sold out, please select another");
+	}
+
+	public int getCurrentBalance() {
+		return this.currentBalance;
+	}
+	
+	public void insertCoin(Coin coin) {
+		this.currentBalance += coin.getValue();
+		this.coinInventory.add(coin);
 	}
 
 }

@@ -63,4 +63,14 @@ public class VendingMachineTest {
 		assertThrows(SoldOutException.class,
 				() -> this.vendingMachine.getPriceForSelectedProduct(Product.COKE));
 	}
+	
+	@Test
+	void testInsertCoin() {
+		int expectedBalance = 25;
+		
+		this.vendingMachine.insertCoin(Coin.QUARTER);
+		int result = this.vendingMachine.getCurrentBalance();
+		
+		assertEquals(expectedBalance, result);
+	}
 }
