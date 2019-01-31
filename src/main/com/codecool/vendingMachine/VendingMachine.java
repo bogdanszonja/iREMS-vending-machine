@@ -55,4 +55,8 @@ public class VendingMachine {
 		return this.coinInventory.get(coin) > 0 ? true : false;
 	}
 
+	public boolean hasProduct(Product product) {
+		return this.productInventory.get(product) > 0 ? true : false;
+	}
+
 }

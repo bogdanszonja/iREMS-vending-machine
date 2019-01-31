@@ -111,4 +111,16 @@ public class VendingMachineTest {
 		assertEquals(expected, result);
 	}
 
+	@Test
+	void testHasProductFalseIfNoProductFound() {
+		boolean expected = false;
+		
+		for (int i = 0; i < 16; i++) {
+			this.vendingMachine.removeProductFromInventory(Product.COKE);
+		}
+		boolean result = this.vendingMachine.hasProduct(Product.COKE);
+		
+		assertEquals(expected, result);
+	}
+
 }
