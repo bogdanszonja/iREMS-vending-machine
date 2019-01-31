@@ -85,5 +85,18 @@ public class VendingMachineTest {
 		
 		assertEquals(expectedCoinInventory, result);
 	}
+	
+	@Test
+	void removeProductFromInventory() {
+		Map<Product, Integer> expectedProductInventory = new HashMap<Product, Integer>();
+		expectedProductInventory.put(Product.COKE, 15);
+		expectedProductInventory.put(Product.PEPSI, 15);
+		expectedProductInventory.put(Product.SODA, 14);
+		
+		this.vendingMachine.removeProductFromInventory(Product.SODA);
+		Map<Product, Integer> result = this.vendingMachine.getProductInventory();
+		
+		assertEquals(expectedProductInventory, result);
+	}
 
 }
