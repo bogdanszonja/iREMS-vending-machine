@@ -1,62 +1,33 @@
 package main.com.codecool.vendingMachine;
 
 import java.util.Map;
-import java.util.HashMap;
 
 public class VendingMachine {
 	
-	private Map<Coin, Integer> coinInventory = new HashMap<Coin, Integer>();
-	private Map<Product, Integer> productInventory = new HashMap<Product, Integer>();
+	private Inventory<Coin> coinInventory = new Inventory<Coin>();
+	private Inventory<Product> productInventory = new Inventory<Product>();
 	
 	public VendingMachine() {
 		this.initialize();
 	}
 
 	private void initialize() {
-		this.coinInventory.put(Coin.PENNY, 10);
-		this.coinInventory.put(Coin.NICKEL, 10);
-		this.coinInventory.put(Coin.DIME, 5);
-		this.coinInventory.put(Coin.QUARTER, 5);
+		this.coinInventory.putAmount(Coin.PENNY, 10);
+		this.coinInventory.putAmount(Coin.NICKEL, 10);
+		this.coinInventory.putAmount(Coin.DIME, 5);
+		this.coinInventory.putAmount(Coin.QUARTER, 5);
 		
-		this.productInventory.put(Product.COKE, 15);
-		this.productInventory.put(Product.PEPSI, 15);
-		this.productInventory.put(Product.SODA, 15);
+		this.productInventory.putAmount(Product.COKE, 15);
+		this.productInventory.putAmount(Product.PEPSI, 15);
+		this.productInventory.putAmount(Product.SODA, 15);
 	}
 
 	public Map<Coin, Integer> getCoinInventory() {
-		return this.coinInventory;
+		return this.coinInventory.getInventory();
 	}
 
 	public Map<Product, Integer> getProductInventory() {
-		return this.productInventory;
-	}
-
-	public void addCoinToInventory(Coin coin) {
-		int count = this.coinInventory.get(coin);
-		this.coinInventory.put(coin, count + 1);
-	}
-
-	public void addProductToInventory(Product product) {
-		int count = this.productInventory.get(product);
-		this.productInventory.put(product, count + 1);
-	}
-
-	public void removeCoinFromInventory(Coin coin) {
-		int count = this.coinInventory.get(coin);
-		this.coinInventory.put(coin, count - 1);	
-	}
-
-	public void removeProductFromInventory(Product product) {
-		int count = this.productInventory.get(product);
-		this.productInventory.put(product, count - 1);		
-	}
-
-	public boolean hasCoin(Coin coin) {
-		return this.coinInventory.get(coin) > 0 ? true : false;
-	}
-
-	public boolean hasProduct(Product product) {
-		return this.productInventory.get(product) > 0 ? true : false;
+		return this.productInventory.getInventory();
 	}
 
 }
